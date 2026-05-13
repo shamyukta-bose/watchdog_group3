@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+config.json
+.monitor-state/
+outputs/*.xlsx
+outputs/raw/
+logs/*.log
+debug_out/
+.env
+.DS_Store

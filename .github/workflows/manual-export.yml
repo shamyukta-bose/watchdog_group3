@@ -1,0 +1,52 @@
+name: Manual Watchdog Run
+
+on:
+  workflow_dispatch:
+    inputs:
+      send_email:
+        description: "Send the email report too?"
+        required: false
+        default: "false"
+        type: choice
+        options: ["false", "true"]
+
+jobs:
+  manual:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+      - run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run one cycle (manual)
+        env:
+          SC_TEAM_ID: ${{ secrets.SC_TEAM_ID }}
+          SC_PASSWORD: ${{ secrets.SC_PASSWORD }}
+          SC_INSTITUTION: ${{ secrets.SC_INSTITUTION }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          SMTP_FROM: ${{ secrets.SMTP_FROM }}
+          EMAIL_RECIPIENTS: ${{ secrets.EMAIL_RECIPIENTS }}
+          EMAIL_ENABLED: ${{ inputs.send_email }}
+        run: |
+          cp config.example.json config.json
+          if [ "${{ inputs.send_email }}" = "false" ]; then
+            python run.py --once --dry-run
+          else
+            python run.py --once
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: manual-watchdog-report
+          path: |
+            outputs/*.xlsx
+            logs/*.log
+          if-no-files-found: ignore
+          retention-days: 30

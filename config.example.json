@@ -1,0 +1,46 @@
+{
+  "game": {
+    "base_url": "https://op.responsive.net/SupplyChain",
+    "team_id": "group3",
+    "password": "0000",
+    "institution": "ucsb"
+  },
+  "schedule": {
+    "scrape_interval_minutes": 30,
+    "report_min_interval_minutes": 60
+  },
+  "policy": {
+    "service_level": 0.95,
+    "production_lead_time_days": 5,
+    "shipping_lead_time_truck_days": 7,
+    "shipping_lead_time_mail_days": 1,
+    "truck_capacity_drums": 200,
+    "truck_fixed_cost": 15000,
+    "mail_cost_per_drum": 150,
+    "batch_setup_cost": 1500,
+    "batch_per_drum_cost": 1000,
+    "capacity_cost_per_drum_per_day": 50000,
+    "capacity_lead_time_days": 90,
+    "holding_cost_per_drum_per_year": 100,
+    "price_per_drum": 1450,
+    "fulfillment_cost_per_drum": 150,
+    "discount_rate_annual": 0.10,
+    "end_day": 1460
+  },
+  "email": {
+    "enabled": true,
+    "smtp_host": "smtp.gmail.com",
+    "smtp_port": 465,
+    "smtp_use_ssl": true,
+    "smtp_user": "you@gmail.com",
+    "smtp_password": "your-gmail-app-password",
+    "from_address": "you@gmail.com",
+    "recipients": ["shamyukta9bose@gmail.com"],
+    "subject_prefix": "[Group3 Watchdog]"
+  },
+  "files": {
+    "demand_history_csv": "data/demand_history.csv",
+    "output_dir": "outputs",
+    "log_dir": "logs"
+  }
+}
