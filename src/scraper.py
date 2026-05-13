@@ -48,7 +48,7 @@ ENDPOINTS = {
     # The game's actual POST handler is determined dynamically from the
     # login form's `action` attribute. We fall back to these if parsing fails.
     "login_post_fallbacks": ["/entry.html", "/SCAccess", "/Membership", "/Login"],
-    "current_status": "/SupplyChain/main.html",
+    "current_status": "/SupplyChain/SCAccess",
     "standing": "/SupplyChain/Standing",
     "warehouse_inventory_plot": "/SupplyChain/Plot?data=Inventory&warehouse=Calopeia",
     "factory_wip_plot": "/SupplyChain/Plot?data=WIP&factory=Calopeia",
