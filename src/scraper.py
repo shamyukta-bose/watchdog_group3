@@ -44,22 +44,22 @@ log = logging.getLogger("scraper")
 # ---- HTTP endpoints (edit these when the game's URLs change) -------------
 
 ENDPOINTS = {
-    "login_page": "/SCAccess",
+    "login_page": "/sc/riverside267/entry.html",
     # The game's actual POST handler is determined dynamically from the
     # login form's `action` attribute. We fall back to these if parsing fails.
-    "login_post_fallbacks": ["/Membership", "/Login", "/SCAccess"],
-    "current_status": "/CurrentStatus",
-    "standing": "/Standing",
-    "warehouse_inventory_plot": "/Plot?data=Inventory&warehouse=Calopeia",
-    "factory_wip_plot": "/Plot?data=WIP&factory=Calopeia",
-    "demand_plot": "/Plot?data=Demand&warehouse=Calopeia",
-    "lost_demand_plot": "/Plot?data=LostDemand&warehouse=Calopeia",
-    "shipments_plot": "/Plot?data=Shipments&warehouse=Calopeia",
-    "cash_plot": "/Plot?data=Cash",
+    "login_post_fallbacks": ["/entry.html", "/SCAccess", "/Membership", "/Login"],
+    "current_status": "/SupplyChain/main.html",
+    "standing": "/SupplyChain/Standing",
+    "warehouse_inventory_plot": "/SupplyChain/Plot?data=Inventory&warehouse=Calopeia",
+    "factory_wip_plot": "/SupplyChain/Plot?data=WIP&factory=Calopeia",
+    "demand_plot": "/SupplyChain/Plot?data=Demand&warehouse=Calopeia",
+    "lost_demand_plot": "/SupplyChain/Plot?data=LostDemand&warehouse=Calopeia",
+    "shipments_plot": "/SupplyChain/Plot?data=Shipments&warehouse=Calopeia",
+    "cash_plot": "/SupplyChain/Plot?data=Cash",
     # Decision endpoints (you change these in the game's UI; we don't auto-submit
     # in monitor-only mode but we record the page so you can confirm settings.)
-    "factory_settings": "/Factory?factory=Calopeia",
-    "warehouse_settings": "/Warehouse?warehouse=Calopeia",
+    "factory_settings": "/SupplyChain/Factory?factory=Calopeia",
+    "warehouse_settings": "/SupplyChain/Warehouse?warehouse=Calopeia",
 }
 
 
