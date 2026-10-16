@@ -11,7 +11,7 @@ the game UI.
 
 ## What's different from Group 7
 
-| Area | Group 3 (rank 1, prior class) | Group 3 (this project) |
+| Area | Group 7 (rank 1, prior class) | Group 3 (this project) |
 |------|------------------------------|------------------------|
 | Forecast | 10 equal "phases" with flat mean/stdev per phase | Per-day-of-year seasonal index fit on the full 2-year history with a 7-day smoother |
 | Volatility | Phase stdev (includes seasonal swings) | Residual stdev after removing the seasonal component → tighter, less-padded safety stock |
